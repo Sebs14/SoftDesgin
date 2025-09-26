@@ -1,22 +1,95 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      import { initAnimations } from "../scripts/animations.ts";
+
+      // Initialize animations when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        initAnimations();
+      });
+
+      // Re-initialize animations after any navigation
+      document.addEventListener("astro:page-load", () => {
+        initAnimations();
+      });
+    </script>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0f172a; /* Mismo color que el footer */
+  }
+
+  /* Animation delays for staggered effects */
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* 3D Perspective for hero section */
+  .hero-3d-text {
+    perspective: 1000px;
+    perspective-origin: center center;
+    transform-style: preserve-3d;
+  }
+
+  /* Enhanced 3D effects for text */
+  .text-3d {
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+    will-change: transform;
+  }
+
+  /* Smooth transitions for 3D elements */
+  .text-3d * {
+    transition: transform 0.3s ease;
+  }
+
+  /* Eliminar espacios blancos después del footer */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Asegurar que el footer sea el último elemento */
+  footer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e293b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #64748b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
 </style>

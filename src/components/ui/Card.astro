@@ -1,0 +1,67 @@
+---
+export interface Props {
+  variant?: 'default' | 'gradient' | 'glass' | 'hover-lift';
+  padding?: 'sm' | 'md' | 'lg';
+  rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+  shadow?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+  border?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  padding = 'md',
+  rounded = '2xl',
+  shadow = 'lg',
+  border = false,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+// Base classes
+const baseClasses = 'block transition-all duration-300';
+
+// Variant classes
+const variantClasses = {
+  default: 'bg-white',
+  gradient: 'bg-gradient-to-br from-purple-50 to-pink-50',
+  glass: 'bg-white/10 backdrop-blur-lg border border-white/20',
+  'hover-lift': 'bg-white hover:shadow-2xl transform hover:-translate-y-2'
+};
+
+// Padding classes
+const paddingClasses = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8'
+};
+
+// Rounded classes
+const roundedClasses = {
+  sm: 'rounded',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  xl: 'rounded-2xl',
+  '2xl': 'rounded-2xl',
+  '3xl': 'rounded-3xl'
+};
+
+// Shadow classes
+const shadowClasses = {
+  sm: 'shadow-sm',
+  md: 'shadow-md',
+  lg: 'shadow-lg',
+  xl: 'shadow-xl',
+  '2xl': 'shadow-2xl'
+};
+
+// Border classes
+const borderClasses = border ? 'border border-gray-200' : '';
+
+// Combine all classes
+const cardClasses = `${baseClasses} ${variantClasses[variant]} ${paddingClasses[padding]} ${roundedClasses[rounded]} ${shadowClasses[shadow]} ${borderClasses} ${className}`.trim();
+---
+
+<div class={cardClasses} {...rest}>
+  <slot />
+</div>

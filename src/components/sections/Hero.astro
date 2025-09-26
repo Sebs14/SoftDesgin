@@ -1,0 +1,135 @@
+---
+import { Button, Icon } from "../ui";
+---
+
+<!-- Hero Section -->
+<section
+  class="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center"
+>
+  <!-- Background Animation -->
+  <div class="absolute inset-0 opacity-20">
+    <div
+      class="hero-parallax absolute top-10 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"
+    >
+    </div>
+    <div
+      class="hero-parallax absolute top-20 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"
+    >
+    </div>
+    <div
+      class="hero-parallax absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Main Content -->
+    <div class="mb-8">
+      <!-- Hero Title -->
+      <div class="hero-text mb-6">
+        <h1 class="hero-title">Transformamos</h1>
+        <h1 class="hero-title">Ideas en</h1>
+        <h1 class="hero-title">Realidad Digital</h1>
+      </div>
+
+      <p
+        class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed fade-in-up"
+      >
+        Somos una agencia de freelancers especializada en <strong
+          class="text-white">Diseño Gráfico</strong
+        > y
+        <strong class="text-white">Desarrollo de Software</strong>. Creamos
+        experiencias digitales que impulsan tu negocio.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center stagger-item">
+        <Button href="#servicios" variant="primary" size="lg" class="fade-in-up">
+          Ver Nuestros Servicios
+        </Button>
+        <Button href="#contacto" variant="outline" size="lg" class="fade-in-up">
+          Empezar Proyecto
+        </Button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-3xl mx-auto stagger-item">
+      <div class="stat-item text-center scale-in">
+        <div class="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
+        <div class="text-gray-400">Proyectos Completados</div>
+      </div>
+      <div class="stat-item text-center scale-in">
+        <div class="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
+        <div class="text-gray-400">Clientes Satisfechos</div>
+      </div>
+      <div class="stat-item text-center scale-in">
+        <div class="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
+        <div class="text-gray-400">Soporte Técnico</div>
+      </div>
+      <div class="stat-item text-center scale-in">
+        <div class="text-3xl md:text-4xl font-bold text-white mb-2">3+</div>
+        <div class="text-gray-400">Años de Experiencia</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div
+    class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+  >
+    <Icon name="chevron-down" size="lg" color="rgb(255 255 255 / 0.6)" />
+  </div>
+</section>
+
+<style>
+  /* Clean Hero Title Styles */
+  .hero-text {
+    padding: 2rem 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-title {
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    margin: 0.2rem 0;
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    cursor: default;
+  }
+
+  /* Responsive sizes */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem; 
+      line-height: 0.9;
+    }
+    .hero-text {
+      padding: 1.5rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    .hero-text {
+      padding: 1rem 0;
+    }
+  }
+
+  /* Simple hover effect */
+  .hero-title:hover {
+    filter: brightness(1.1);
+    transition: filter 0.3s ease;
+  }
+</style>
